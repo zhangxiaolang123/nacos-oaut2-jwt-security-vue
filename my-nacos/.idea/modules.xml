@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/my-common/my-common.iml" filepath="$PROJECT_DIR$/my-common/my-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-consumer/my-consumer.iml" filepath="$PROJECT_DIR$/my-consumer/my-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-gateway/my-gateway.iml" filepath="$PROJECT_DIR$/my-gateway/my-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-nacos.iml" filepath="$PROJECT_DIR$/my-nacos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-provider/my-provider.iml" filepath="$PROJECT_DIR$/my-provider/my-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-sentinel/my-sentinel.iml" filepath="$PROJECT_DIR$/my-sentinel/my-sentinel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-user/my-user.iml" filepath="$PROJECT_DIR$/my-user/my-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-user-oauth/my-user-oauth.iml" filepath="$PROJECT_DIR$/my-user-oauth/my-user-oauth.iml" />
+    </modules>
+  </component>
+</project>

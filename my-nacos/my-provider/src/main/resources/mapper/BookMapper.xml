@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zxl.mapper.BookMapper" >
+    <resultMap id="BaseResultMap" type="com.zxl.entity.Book" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="age" property="age" jdbcType="INTEGER" />
+        <result column="author" property="author" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id, user_name, password, age,author,name
+    </sql>
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT * FROM book
+    </select>
+
+    <select id="selectPage" resultType="com.zxl.entity.Book">
+        SELECT * FROM book
+    </select>
+
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from book
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+        delete from book
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="insert" parameterType="com.zxl.entity.Book" >
+        insert into book ( user_name, password,
+        age,author,name)
+        values ( #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+        #{age,jdbcType=INTEGER},#{author,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.zxl.entity.Book" >
+        insert into book
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+
+            <if test="userName != null" >
+                user_name,
+            </if>
+            <if test="password != null" >
+                password,
+            </if>
+            <if test="age != null" >
+                age,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+
+            <if test="userName != null" >
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null" >
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null" >
+                #{age,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.zxl.entity.Book" >
+        update book
+        <set >
+            <if test="userName != null" >
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null" >
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null" >
+                age = #{age,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.zxl.entity.Book" >
+        update book
+        set user_name = #{userName,jdbcType=VARCHAR},
+        password = #{password,jdbcType=VARCHAR},
+        age = #{age,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        author = #{author,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
